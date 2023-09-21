@@ -1,0 +1,23 @@
+from fastapi import FastAPI
+app = FastAPI()
+answer=0
+@app.get('/')
+def instruction():
+    return{'Канкулятор может выполнять операции сложения,вычитания,'
+           'деления и умножения.'}
+@app.post('calculytor')
+def calculytor(func:str,num1:float,num2:float):
+    if func =='+':
+        answer=num1+num2
+        return answer
+    if func == '-':
+        answer = num1 - num2
+        return answer
+    if func == '/':
+        answer = num1 / num2
+        return answer
+    if func == '*':
+        answer = num1 * num2
+        return answer
+    else:
+        return {'Ошибка. Проверьте правильность заполнения.'}
