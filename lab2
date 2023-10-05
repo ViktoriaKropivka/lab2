@@ -9,9 +9,11 @@ def calculytor(operation:str,num1:float,num2:float):
         return {num1 + num2}
     if operation == "-":
         return {num1 - num2}
-    if operation == "/":
+    if operation == "/" and num2 != 0:
         return {num1 / num2}
     if operation == "*":
         return {num1 * num2}
+    if operation == "/" and num2 == 0:
+        return {"Нет решения."}
     else:
         return {"Ошибка. Проверьте правильность заполнения."}
